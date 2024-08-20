@@ -1,7 +1,9 @@
 @font-face {
   font-family: "DMSans";
-  src: url("fonts/DM_Sans/DMSans-VariableFont_opszwght.woff") format("woff"),
-    url("fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf") format("truetype"); /* Safari, Android, iOS */
+  src: url("public/fonts/DM_Sans/DMSans-VariableFont_opszwght.woff")
+      format("woff"),
+    url("public/fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf")
+      format("truetype"); /* Safari, Android, iOS */
 }
 
 :root {
