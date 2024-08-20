@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "DMSans";
+  src: url("fonts/DM_Sans/DMSans-VariableFont_opszwght.woff") format("woff"),
+    url("fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
+:root {
+  --softRed: hsl(10, 79%, 65%);
+  --cyan: hsl(186, 34%, 60%);
+  --dBrown: hsl(25, 47%, 15%);
+  --medBrown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --vPaleOrange: hsl(33, 100%, 98%);
+}
+
+body {
+  font-size: 1.125rem;
+  font-family: "DMSans";
+  font-weight: 400;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/** Reset styles **/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-top: 0;
+  margin-block-end: 0;
+}
