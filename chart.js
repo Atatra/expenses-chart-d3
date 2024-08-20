@@ -2,13 +2,14 @@ const displayChart = (h, rectW, padding, gap, roundedCorner) => {
   fetch("./public/data.json")
     .then((response) => response.json())
     .then((dataset) => {
-      const w = (rectW + gap) * dataset.length - gap;
+      const w = (rectW + gap) * dataset.length - gap + 2 * padding;
       const svg = d3.select("svg").attr("height", h).attr("width", w);
 
-      const yScale = d3
+      const heightScale = d3
         .scaleLinear()
         .domain([0, d3.max(dataset, (d) => d.amount)])
-        .range([padding, h - padding]);
+        //.range([padding, h - padding]);
+        .range([padding, h - padding * 2.7]);
 
       /** Plot bar dynamically */
       svg
@@ -21,11 +22,14 @@ const displayChart = (h, rectW, padding, gap, roundedCorner) => {
           return "bar";
         })
         .attr("width", rectW)
-        .attr("height", (d) => {
-          return yScale(d.amount);
-        })
-        .attr("x", (d, i) => i * (rectW + gap))
-        .attr("y", (d) => h - (yScale(d.amount) + padding))
+        //.attr("height", (d) => {
+        //  return yScale(d.amount);
+        //})
+        .attr("height", (d) => heightScale(d.amount))
+
+        .attr("x", (d, i) => i * (rectW + gap) + padding)
+        //.attr("y", (d) => h - (yScale(d.amount) + padding))
+        .attr("y", (d) => h - (heightScale(d.amount) + padding))
         .attr("rx", roundedCorner)
         .attr("ry", roundedCorner)
 
@@ -37,9 +41,9 @@ const displayChart = (h, rectW, padding, gap, roundedCorner) => {
           svg
             .append("rect")
             .attr("class", "barTooltipBack")
-            .attr("x", xPosition - 24)
+            .attr("x", xPosition - 28)
             .attr("y", yPosition - 23)
-            .attr("width", 48)
+            .attr("width", 56)
             .attr("height", 26)
             .attr("fill", "var(--dBrown)")
             .attr("rx", 3);
@@ -64,7 +68,7 @@ const displayChart = (h, rectW, padding, gap, roundedCorner) => {
         .enter()
         .append("text")
         .text((d) => d.day)
-        .attr("x", (d, i) => i * (rectW + gap) + rectW / 2)
+        .attr("x", (d, i) => i * (rectW + gap) + padding + rectW / 2)
         .attr("y", (d) => h)
         .attr("class", "barLabel")
         .attr("text-anchor", "middle");
@@ -76,9 +80,9 @@ const displayChart = (h, rectW, padding, gap, roundedCorner) => {
 function displayChartResponsive(media) {
   d3.select("svg").selectAll("*").remove();
   if (media.matches) {
-    displayChart(180, 31, 25, 15, 3);
+    displayChart(180, 31, 20, 15, 3);
   } else {
-    displayChart(180, 50, 25, 15, 3);
+    displayChart(180, 50, 20, 15, 3);
   }
 }
 
