@@ -1,5 +1,5 @@
 const displayChart = (h, rectW, padding, gap, roundedCorner) => {
-  fetch("./data.json")
+  fetch("/data.json")
     .then((response) => response.json())
     .then((dataset) => {
       const w = (rectW + gap) * dataset.length - gap;
