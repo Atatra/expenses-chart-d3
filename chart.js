@@ -27,7 +27,35 @@ const displayChart = (h, rectW, padding, gap, roundedCorner) => {
         .attr("x", (d, i) => i * (rectW + gap))
         .attr("y", (d) => h - (yScale(d.amount) + padding))
         .attr("rx", roundedCorner)
-        .attr("ry", roundedCorner);
+        .attr("ry", roundedCorner)
+
+        // Tooltip
+        .on("mouseover", function (mouseEvent, d) {
+          const xPosition = parseFloat(d3.select(this).attr("x")) + rectW / 2;
+          const yPosition = parseFloat(d3.select(this).attr("y")) - 10;
+
+          svg
+            .append("rect")
+            .attr("class", "barTooltipBack")
+            .attr("x", xPosition - 24)
+            .attr("y", yPosition - 23)
+            .attr("width", 48)
+            .attr("height", 26)
+            .attr("fill", "var(--dBrown)")
+            .attr("rx", 3);
+
+          svg
+            .append("text")
+            .attr("class", "barTooltipText")
+            .attr("x", xPosition)
+            .attr("y", yPosition - 5)
+            .attr("text-anchor", "middle")
+            .text(`$${d.amount}`);
+        })
+        .on("mouseout", function () {
+          svg.selectAll(".barTooltipText").remove();
+          svg.selectAll(".barTooltipBack").remove();
+        });
 
       /** Plot chart labels */
       svg

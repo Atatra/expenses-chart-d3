@@ -67,8 +67,23 @@ body {
   fill: var(--softRed);
 }
 
+.bar:hover {
+  opacity: 70%;
+}
+
 .barToday {
   fill: var(--cyan);
+}
+
+.barToday:hover {
+  opacity: 70%;
+}
+
+.barTooltipText {
+  border-radius: 5px;
+  fill: var(--vPaleOrange);
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .barLabel {
