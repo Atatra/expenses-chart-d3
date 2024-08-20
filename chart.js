@@ -49,9 +49,9 @@ const displayChart = (h, rectW, padding, gap, roundedCorner) => {
 function displayChartResponsive(media) {
   d3.select("svg").selectAll("*").remove();
   if (media.matches) {
-    displayChart(180, 30, 20, 15, 5);
+    displayChart(180, 31, 25, 15, 3);
   } else {
-    displayChart(180, 50, 20, 15, 5);
+    displayChart(180, 50, 25, 15, 3);
   }
 }
 
