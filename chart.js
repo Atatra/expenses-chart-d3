@@ -22,7 +22,6 @@ const displayChart = (h, rectW, padding, gap, roundedCorner) => {
         })
         .attr("width", rectW)
         .attr("height", (d) => {
-          console.log(d.day, yScale(d.amount));
           return yScale(d.amount);
         })
         .attr("x", (d, i) => i * (rectW + gap))
@@ -59,7 +58,6 @@ var x = window.matchMedia("(max-width: 40em)");
 displayChartResponsive(x);
 
 x.addEventListener("change", function () {
-  console.log("changed!");
   displayChartResponsive(x);
 });
 
