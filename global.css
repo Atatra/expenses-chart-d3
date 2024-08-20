@@ -27,6 +27,11 @@ body {
   justify-content: center;
 }
 
+main {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 /** Top Card **/
 .balanceTop {
   display: flex;
@@ -55,12 +60,21 @@ body {
 .chartCard {
   background-color: var(--vPaleOrange);
   border-radius: 10px;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .chartCard > h1 {
   margin-bottom: 30px;
   color: var(--dBrown);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.chartCard > h2,
+div {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .bar {
@@ -93,6 +107,7 @@ body {
 }
 
 hr {
+  width: 90%;
   margin-top: 25px;
   margin-bottom: 25px;
   opacity: 30%;
@@ -134,8 +149,6 @@ hr {
   }
   .chartCard {
     border-radius: 12px;
-    padding-left: 30px;
-    padding-right: 30px;
   }
   .stats > strong {
     font-size: 2.25rem;

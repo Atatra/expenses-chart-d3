@@ -28,7 +28,6 @@ const displayChart = (h, rectW, padding, gap, roundedCorner) => {
         .attr("height", (d) => heightScale(d.amount))
 
         .attr("x", (d, i) => i * (rectW + gap) + padding)
-        //.attr("y", (d) => h - (yScale(d.amount) + padding))
         .attr("y", (d) => h - (heightScale(d.amount) + padding))
         .attr("rx", roundedCorner)
         .attr("ry", roundedCorner)
