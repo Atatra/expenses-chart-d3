@@ -19,6 +19,15 @@ body {
   font-weight: 400;
 }
 
+/** Chart Styles **/
+.bar {
+  fill: var(--softRed);
+}
+
+.barToday {
+  fill: var(--cyan);
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
