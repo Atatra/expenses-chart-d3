@@ -28,6 +28,11 @@ body {
   fill: var(--cyan);
 }
 
+.barLabel {
+  font-size: 1rem;
+  opacity: 70%;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;

@@ -1,7 +1,7 @@
-const h = 150;
+const h = 180;
 const w = 700;
-const rectW = 40;
-const padding = 0;
+const rectW = 50;
+const padding = 20;
 const gap = 15;
 const roundedCorner = 5;
 
@@ -15,6 +15,7 @@ fetch("./public/data.json")
       .domain([0, d3.max(dataset, (d) => d.amount)])
       .range([padding, h - padding]);
 
+    /** Plot bar dynamically */
     svg
       .selectAll("rect")
       .data(dataset)
@@ -30,10 +31,23 @@ fetch("./public/data.json")
         return yScale(d.amount);
       })
       .attr("x", (d, i) => i * (rectW + gap))
-      .attr("y", (d) => h - yScale(d.amount))
+      .attr("y", (d) => h - (yScale(d.amount) + padding))
       .attr("rx", roundedCorner)
       .attr("ry", roundedCorner);
+
+    /** Plot chart labels */
+    svg
+      .selectAll("text")
+      .data(dataset)
+      .enter()
+      .append("text")
+      .text((d) => d.day)
+      .attr("x", (d, i) => i * (rectW + gap) + rectW / 2)
+      .attr("y", (d) => h)
+      .attr("class", "barLabel")
+      .attr("text-anchor", "middle");
   })
+
   .catch((error) => console.log(error));
 
 const getDay = () => {
